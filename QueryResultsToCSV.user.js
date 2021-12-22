@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         QueryResultsToCSV
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/jamesmckaytt/TampermonkeyScripts
 // @version      0.1
 // @description  Save SF Dev console query results to a csv file. Fairly dumb, won't handle objects.
 // @author       James McKay
 // @match        https://*.my.salesforce.com/_ui/common/apex/debug/ApexCSIPage
 // @grant        none
+// @downloadURL  https://github.com/jamesmckaytt/TampermonkeyScripts/raw/main/QueryResultsToCSV.user.js
 // ==/UserScript==
 
 (function() {
