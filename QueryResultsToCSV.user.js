@@ -6,7 +6,7 @@
 // @author       James McKay
 // @match        https://*.my.salesforce.com/_ui/common/apex/debug/ApexCSIPage
 // @grant        none
-// @downloadURL  https://github.com/jamesmckaytt/TampermonkeyScripts/raw/main/QueryResultsToCSV.user.js
+// @downloadURL  https://raw.githubusercontent.com/jamesmckaytt/TampermonkeyScripts/main/QueryResultsToCSV.user.js
 // ==/UserScript==
 
 (function() {
