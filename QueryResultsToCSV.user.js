@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         QueryResultsToCSV
 // @namespace    https://github.com/jamesmckaytt/TampermonkeyScripts
-// @version      0.1
+// @version      0.2
 // @description  Save SF Dev console query results to a csv file. Fairly dumb, won't handle objects.
 // @author       James McKay
 // @match        https://*.my.salesforce.com/_ui/common/apex/debug/ApexCSIPage
@@ -51,7 +51,7 @@
             let newButton = document.createElement('button');
             newButton.type = "button";
             newButton.addEventListener('click', function(ev) {
-                (function() { let lineArray = []; Array.from(document.querySelectorAll('#editors-body > .x-panel:last-child > .x-panel-body-default .x-grid-view table > tbody > tr.x-grid-row')).map(function(el){ return (Array.from(el.querySelectorAll('td')).map(function(d){ return d.innerText; }));}).forEach(function(a,i){ let line = a.join(','); lineArray.push(i == 0 ? "data:text/csv;charset=utf-8," + line : line) }); let s = lineArray.join('\n'); saveAs(s, 'results-' + (new Date()).toISOString() + '.csv'); }())
+                (function() { let lineArray = []; Array.from(document.querySelectorAll('#editors-body > .x-panel:last-child > .x-panel-body-default .x-grid-view table > tbody > tr.x-grid-row')).map(function(el){ return (Array.from(el.querySelectorAll('td')).map(function(d){ return d.innerText.replaceAll('"', '""'); }));}).forEach(function(a,i){ let line = a.join(','); lineArray.push(i == 0 ? "data:text/csv;charset=utf-8," + line : line) }); let s = lineArray.join('\n'); saveAs(s, 'results-' + (new Date()).toISOString() + '.csv'); }())
             });
             newButton.innerText = 'Get CSV';
 
